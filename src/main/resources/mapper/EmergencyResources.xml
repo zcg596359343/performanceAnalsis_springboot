@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.performance_analsis_springboot.dao.EmergencyResourcesDao">
     <select id="getAll" resultType="com.example.performance_analsis_springboot.model.EmergencyResources">
-         select cars,city_jhc,ncity_jhc,doctors,drivers,nurses,site_type
-          from ucc_resources where site_name=#{name}
+         select site_name,cars,city_jhc,ncity_jhc,doctors,drivers,nurses,site_type
+          from ucc_resources where site_name=#{name} or ss_yljg=#{name}
     </select>
     <select id="get" resultType="com.example.performance_analsis_springboot.model.EmergencyResources_map">
-         select site_name,lng,lat from ucc_resources
+         select site_name,lng,lat,site_type,ss_yljg from ucc_resources
     </select>
 </mapper>

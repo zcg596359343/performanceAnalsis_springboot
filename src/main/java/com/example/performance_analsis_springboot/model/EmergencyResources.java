@@ -1,7 +1,15 @@
 package com.example.performance_analsis_springboot.model;
 
 public class EmergencyResources {
-    private String cars, city_jhc, ncity_jhc, doctors, drivers, nurses,site_type;
+    private String site_name,cars, city_jhc, ncity_jhc, doctors, drivers, nurses,site_type;
+
+    public String getSite_name() {
+        return site_name;
+    }
+
+    public void setSite_name(String site_name) {
+        this.site_name = site_name;
+    }
 
     public String getCars() {
         return cars;
