@@ -2,24 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.performance_analsis_springboot.dao.UccDao">
     <select id="getType" resultType="com.example.performance_analsis_springboot.model.UccType">
-        SELECT course, count(*) as number FROM emr_ucc where date>=#{startTime}
-        and date&lt;=#{endTime} and street in
+        SELECT course, count(*) as number FROM emr_ucc where complete_time>=#{startTime}
+        and complete_time&lt;=#{endTime} and street in
         <foreach collection="city" item="city" open="(" close=")" separator=",">
             #{city}
         </foreach>
         GROUP BY course
     </select>
     <select id="getMarried" resultType="com.example.performance_analsis_springboot.model.UccMarried">
-        SELECT isMarried, count(*) as number FROM emr_ucc where date>=#{startTime}
-        and date&lt;=#{endTime} and street in
+        SELECT isMarried, count(*) as number FROM emr_ucc where complete_time>=#{startTime}
+        and complete_time&lt;=#{endTime} and street in
         <foreach collection="city" item="city" open="(" close=")" separator=",">
             #{city}
         </foreach>
         GROUP BY isMarried
     </select>
     <select id="getProfession" resultType="com.example.performance_analsis_springboot.model.UccProfession">
-        SELECT profession, count(*) as number FROM emr_ucc where date>=#{startTime}
-        and date&lt;=#{endTime} and  street in
+        SELECT profession, count(*) as number FROM emr_ucc where complete_time>=#{startTime}
+        and complete_time&lt;=#{endTime} and  street in
         <foreach collection="city" item="city" open="(" close=")" separator=",">
             #{city}
         </foreach>
@@ -27,8 +27,8 @@
     </select>
     <select id="getMan" resultType="com.example.performance_analsis_springboot.model.UccMan">
         SELECT  COUNT(*) number
-        FROM emr_ucc WHERE age>=0 and age &lt;=4 AND gender='男' and date>=#{startTime}
-        and date&lt;=#{endTime}  and street in
+        FROM emr_ucc WHERE age>=0 and age &lt;=4 AND gender='男' and complete_time>=#{startTime}
+        and complete_time&lt;=#{endTime}  and street in
         <foreach collection="city" item="city" open="(" close=")" separator=",">
             #{city}
         </foreach>
@@ -70,8 +70,8 @@
     </select>
     <select id="getWoman" resultType="com.example.performance_analsis_springboot.model.UccMan">
         SELECT  COUNT(*) number
-        FROM emr_ucc WHERE age>=0 and age &lt;=4 AND gender='女' and date>=#{startTime}
-        and date&lt;=#{endTime} and street in
+        FROM emr_ucc WHERE age>=0 and age &lt;=4 AND gender='女' and complete_time>=#{startTime}
+        and complete_time&lt;=#{endTime} and street in
         <foreach collection="city" item="city" open="(" close=")" separator=",">
             #{city}
         </foreach>
