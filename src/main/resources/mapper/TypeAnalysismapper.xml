@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.performance_analsis_springboot.dao.Type_analysisDao">
+    <select id="get" resultType="com.example.performance_analsis_springboot.model.Type_analysis">
+         select disease_type,complete_time
+          from emr_ucc where DATE_SUB(CURDATE(), INTERVAL 30 DAY) &lt;= complete_time
+    </select>
+</mapper>
